@@ -455,21 +455,17 @@ let dersTotal = 0;
 function smoothContentSwitch(newHtml) {
   const container = document.getElementById("quiz-container");
 
-  // Запускаем плавное исчезновение
   container.classList.add('fade-out');
 
   setTimeout(() => {
     // Меняем содержимое
     container.innerHTML = newHtml;
 
-    // Убираем fade-out и запускаем плавное появление
     container.classList.remove('fade-out');
     container.classList.add('fade-in');
 
-    // Запускаем плавный поворот фона
     updateBackground();
 
-    // Через полсекунды убираем класс fade-in, чтобы не мешал
     setTimeout(() => {
       container.classList.remove('fade-in');
     }, 500);
@@ -606,7 +602,7 @@ function loadQuestion() {
 
 function startTest(testKey) {
     currentTest = allTests[testKey];
-    currentTest.key = testKey; // добавь, если в allTests нет поля key
+    currentTest.key = testKey; 
     currentQuestionIndex = 0;
 
     if (testKey === "cattell") {
@@ -627,7 +623,7 @@ function finishQuiz() {
     const container = document.getElementById("quiz-container");
 
     if (currentTest.key === "cattell") {
-        // выводим результат для теста Кэттелла
+
         const resultSummary = `
             <h2>Результаты</h2>
             <p><strong>Доминирование : склонность к лидерству и напору</strong> <span class="result-number">${results.dominant} из 16</span></p>
